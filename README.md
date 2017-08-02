@@ -18,7 +18,7 @@ Open InfluxDb administration web interface and create new database for storing c
 ```
   create database sonar
 ```
-The configuration in influxdb.conf includes UDP configuration to listen on port 8092 for receiving events from Sonar container. 
+The configuration in influxdb.conf includes UDP configuration to listen on port 8092 for receiving events from Sonar container and storing them in database named 'sonar'. 
 ## Configuring WInRM
 WinRM can be configured to use Basic authentication using the following commands(run as Adminstrator):
 ```
