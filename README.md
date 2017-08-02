@@ -6,7 +6,7 @@ This repository contains configuration files for deploying Sonar and its depende
 The below steps describe how to use Docker to create and deploy example environment with Sonar, InfluxDb and Telegraf. The purpose of Telegraf in this case is to monitor performance for Docker containers.  
 ## Deployment
 1. Clone the repository.
-2. Review Sonar configuration files with sample WMI queries in WQL. Change Windows host name and user credentials for accessing WinRM on remote host.
+2. Review Sonar configuration files with sample WMI queries in WQL. Change Windows host name and user credentials for accessing WinRM on remote host. Note that domain name is not required for the basic authentication.
 3. Configure WinRM to allow remote connections. Only Basic authentication is supported via HTTP or HTTPS.
 4. Customize docker-compose.yml file if you need to point to  (optional)
 5. Create and start containers:
