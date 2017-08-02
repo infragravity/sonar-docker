@@ -1,7 +1,7 @@
 # sonar-docker
 This repository contains configuration files for deploying Sonar and its dependencies using Docker. 
 Sonar is metric collection agent for gathering data from WMI remotely and can be deployed using Docker.
-It sends collected metrics to InfluxDb time series database using UDP transport.
+It sends collected metrics to InfluxDb time series database using UDP transport as alternative to Telegraf from InfluxData that does not support WMI.
 
 ## Installation
 1. Clone the repository.
