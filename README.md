@@ -28,4 +28,4 @@ WinRM can be configured to use Basic authentication using the following commands
   winrm set winrm/config/service '@{AllowUnencrypted="true"}'
 ```
 ## Troubleshooting
-The level of diagnostic logging is configurable in Sonar.config file and set to 'Information' by default. 
+The level of diagnostic logging is configurable in Sonar.config file and set to 'Information' by default. This setting can be changed to 'Debug' for displaying low level diagnostics.
