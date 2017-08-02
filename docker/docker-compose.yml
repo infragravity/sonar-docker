@@ -1,0 +1,87 @@
+version: '2.1'
+
+networks:
+    ticknet:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.24.0.0/16
+                  gateway: 172.24.0.1
+
+services:
+  influxdb:
+    image: influxdb:latest
+    container_name: infra_influxdb
+    ports:
+      - "2003:2003"
+      - "8083:8083"
+      - "8086:8086"
+      - "8089:8089/udp"
+      - "8090:8090/udp"
+      - "8091:8091/udp"
+      - "8092:8092/udp"
+    restart: always
+    volumes:
+    - ./influxdb.conf:/etc/influxdb/influxdb.conf:ro
+    - ./lib/influxdb:/var/lib/influxdb
+    expose:
+    - "8086"
+    networks: 
+      ticknet:
+        ipv4_address: 172.24.0.2
+
+  telegraf:
+    depends_on:
+      - influxdb
+    image: telegraf:latest
+    container_name: infra_telegraf
+    restart: always
+    environment:
+      HOST_PROC: /rootfs/proc
+      HOST_SYS: /rootfs/sys
+      HOST_ETC: /rootfs/etc
+    hostname: myhostname
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/rootfs/sys:ro
+      - /proc:/rootfs/proc:ro
+      - /etc:/rootfs/etc:ro
+    networks: 
+      ticknet:
+        ipv4_address: 172.24.0.3
+
+  grafana:
+    depends_on:
+      - influxdb
+    image: grafana/grafana:latest
+    container_name: infra_grafana
+    ports:
+      - "3000:3000"
+    external_links:
+      - infragravity_influxdb
+    restart: always
+    volumes:
+    - ./lib/grafana:/var/lib/grafana
+    - ./log/grafana:/var/log/grafana
+    - ./etc/grafana:/etc/grafana
+    networks:  
+      ticknet:
+        ipv4_address: 172.24.0.4
+      
+  sonar:
+    depends_on:
+      - influxdb
+    image: infragravity/sonar:latest
+    container_name: infra_sonar
+    restart: always
+    environment:
+      "appSettings:RuntimeType" : Docker
+      "appSettings:LogLevel" : Warning
+    ports:
+      - 8054:8054
+    volumes:
+      - ./Sonar.config:/Config/Sonar.config:ro
+    networks:  
+      ticknet:
+        ipv4_address: 172.24.0.6
