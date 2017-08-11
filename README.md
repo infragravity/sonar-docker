@@ -2,16 +2,11 @@
 Sonar is metric collection agent wrtten in .NET Core 2 for gathering data from WMI using WS-Management protocol. Sonar sends collected metrics to InfluxDb time series database using UDP protocol. The purpose of Sonar is to complement Telegraf from InfluxData TICK stack that does not support metric collection from Windows WMI. Metrics can be collected from remote host when deployed as container or pod. This repository contains configuration files for deploying Sonar and its dependencies using Docker and Kubernetes. 
 
 ## Deployment
-Sonar can be deployed:Docker container, Kubernetes pod of locally on host. The docker-compose and helm recipes are included in this repository. The following steps are required to export sonar locally:
-1. Download nssm.
-2. Extract sonar bits from docker container using "docker cp".
-3. Use the following command to configure Windows service (named sonard):
-```
-  nssm install sonard
-```
-4. Select sonar.exe file in nssm with working directory set to path where it is located.
+Sonar can be deployed:Docker container, Kubernetes pod of locally on host. The docker-compose.yml and config files included in this repository.  
 # Installation
-The below steps describe how to use Docker to create and deploy example environment with Sonar, InfluxDb and Telegraf. The purpose of Telegraf in this case is to monitor performance for Docker containers.  
+The below steps describe how to use Docker to create and deploy example environment with Sonar, InfluxDb and Telegraf. The purpose of Telegraf in this case is to monitor performance for Docker containers.
+
+## Docker  
 
 1. Clone the repository.
 2. Review Sonar configuration files with sample WMI queries in WQL. Change Windows host name and user credentials for accessing WinRM on remote host. Note that domain name is not required for the basic authentication.
@@ -21,6 +16,15 @@ The below steps describe how to use Docker to create and deploy example environm
 ``` 
   docker-compose up -d
 ```
+## Windows Host
+The following steps are required to export sonar locally:
+1. Download nssm.
+2. Extract sonar bits from docker container using "docker cp".
+3. Use the following command to configure Windows service (named sonard):
+```
+  nssm install sonard
+```
+4. Select sonar.exe file in nssm with working directory set to path where it is located.
 ## Configuration
 Open InfluxDb administration web interface and create new database for storing collected metrics:
 ```
