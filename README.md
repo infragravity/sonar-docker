@@ -1,5 +1,5 @@
 # Overview
-Sonar is metric collection agent wrtten in .NET Core 2 for gathering data from WMI using WS-Management protocol. Sonar sends collected metrics to InfluxDb time series database using UDP protocol. The purpose of Sonar is to complement Telegraf from InfluxData TICK stack that does not support metric collection from Windows WMI. Metrics can be collected from remote host when deployed as container or pod. This repository contains configuration files for deploying Sonar and its dependencies using Docker. Helm chart for Kubernetes is coming soon:) 
+Sonar is metric collection agent wrtten in .NET Core 2 for gathering data from WMI using WS-Management protocol. Sonar sends collected metrics to InfluxDb time series database using UDP protocol. The purpose of Sonar is to complement Telegraf from InfluxData TICK stack that does not support metric collection from Windows Management Instrumentation(WMI). Metrics can be collected from remote host when deployed as container or pod. This repository contains configuration files for deploying Sonar and its dependencies using Docker. Helm chart for Kubernetes is coming soon:) 
 ## Deployment Scenarios
 Sonar can be deployed:Docker container, Kubernetes pod of locally on host. The docker-compose.yml and config files included in this repository.  
 ## Documentation
