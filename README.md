@@ -1,13 +1,12 @@
 # Overview
 Sonar is metric collection agent wrtten in .NET Core 2 for gathering data from WMI using WS-Management protocol. Sonar sends collected metrics to InfluxDb time series database using UDP protocol. The purpose of Sonar is to complement Telegraf from InfluxData TICK stack that does not support metric collection from Windows WMI. Metrics can be collected from remote host when deployed as container or pod. This repository contains configuration files for deploying Sonar and its dependencies using Docker and Kubernetes. 
-
-## Deployment
+## Deployment Scenarios
 Sonar can be deployed:Docker container, Kubernetes pod of locally on host. The docker-compose.yml and config files included in this repository.  
+## Documentation
+The docs are work in progress at [knowledge base](http://www.infragravity.com/knowledge-base/)
 # Installation
 The below steps describe how to use Docker to create and deploy example environment with Sonar, InfluxDb and Telegraf. The purpose of Telegraf in this case is to monitor performance for Docker containers.
-
 ## Docker  
-
 1. Clone the repository.
 2. Review Sonar configuration files with sample WMI queries in WQL. Change Windows host name and user credentials for accessing WinRM on remote host. Note that domain name is not required for the basic authentication.
 3. Configure WinRM to allow remote connections. Only Basic authentication is supported via HTTP or HTTPS.
