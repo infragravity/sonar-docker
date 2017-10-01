@@ -3,7 +3,7 @@ This directory contains set of samples for using Sonar WMI exporter for monitori
   * The WebAPI - shows how to monitor .NET core web application deployed on Windows Nano Server container that runs IIS.
 
 ## Deployment Scenarios
-Sonar can be deployed as Windows service on container or host. The WebAPI examples how it can be accomplished using Windows Nano Server container image. 
+Sonar can be deployed as Windows service to monior container or host. The WebAPI example shows how it can be accomplished using Windows Nano Server container image. 
 ## Documentation
 The docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/)
 # Installation
