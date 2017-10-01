@@ -1,5 +1,6 @@
 # Overview
-This directory contains set of samples for using Sonar WMI exporter for monitoring on Docker and Kubernets. The WebAPI sample shows how to monitor .NET core web application deployed on Windows Nano Server container that runs IIS.
+This directory contains set of samples for using Sonar WMI exporter for monitoring on Docker and Kubernets:
+  * The WebAPI - shows how to monitor .NET core web application deployed on Windows Nano Server container that runs IIS.
 
 ## Deployment Scenarios
 Sonar can be deployed as Windows service on container or host. The WebAPI examples how it can be accomplished using Windows Nano Server container image. 
