@@ -32,12 +32,17 @@ The following steps are required to run sonar (sonard stands for sonar daemon) l
   sc.exe create sonard binpath= <path>\Sonard.exe start= auto obj= LocalSystem depend= "WinRM"
 ```
 3. Start sonar daemon as windows service.
-## Configuration
-Open InfluxDb administration web interface and create new database for storing collected metrics:
+# Configuration
+
+## Integration
+### InfluxDb
+To store metrics in InfluxDb, open CLI and create new database for storing collected metrics:
 ```
   create database sonar
 ```
-The configuration in the samples uses UDP configuration to listen on port 8092 for receiving events from Sonar container and storing them in database named 'sonar'. 
+Review configuration in the WebAPI sample. It uses uses UDP configuration to listen on port 8092 for receiving events from Sonar container and storing them in database named 'sonar'.
+### Prometheus
+Create or update Prometheus job by adding new scrape endpoint hosted by Sonar. By default, Sonar uses configuration to determine port for http://host:port/metrics
 ## Configuring WinRM
 WinRM can be configured to use Basic authentication using the following commands(run as Adminstrator):
 ```
