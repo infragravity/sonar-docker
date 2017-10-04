@@ -4,7 +4,7 @@ Sonar is metric collection agent wrtten in .NET Core for gathering data from WMI
 There are few choices for collecting performance metrics from Windows. While there are choices to collect performance counters or generate code for specific WMI metrics available, Sonar is offers configuratin-only approach with supporting multiple types of TSDBs at the same time.   
 
 # Overview
-Sonar collects metrics from WMI queries and sends them to time series databases. It can simultaneously be integrated following TDSDBs:
+Sonar collects metrics from WMI queries and sends them to time series databases. Metric collection from WMI has been tested with multiple Windows versions, including Win7(SP1) and Nano Server(TP5). It can simultaneously be integrated following TDSDBs:
   * InfluxDb - using UDP protocol.
   * Prometeus - as HTTP exporter scrape endpoint. 
 See WebAPi sample that shows how to use both of the above scenarios.
@@ -14,7 +14,7 @@ Sonar can be deployed as:
   * Windows service
   * Docker container
   * Kubernetes pod 
-Metric collection from WMI has been tested with multiple Windows versions, including Win7(SP1) and Nano Server(TP5).
+
 ## Documentation
 Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/) 
 
