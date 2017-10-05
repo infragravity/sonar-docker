@@ -1,7 +1,7 @@
 Sonar is metric collection agent wrtten in .NET Core for gathering data from WMI locally or remotely(using WS-Management protocol) integrated with time series databases. This repository contains configuration files for deploying Sonar using Docker. Helm chart for Kubernetes is coming soon:) 
 
 # Background
-There are few choices for collecting performance metrics from Windows. While there are choices to collect performance counters or generate code for specific WMI metrics available, Sonar is offers configuration only approach with supporting multiple types of TSDBs at the same time.   
+There are few choices for collecting performance metrics from Windows. While there are choices to collect performance counters or generate code for specific WMI metrics available, Sonar offers configuration only approach with supporting multiple types of TSDBs at the same time.   
 
 # Overview
 Sonar collects metrics from WMI queries and sends them to time series databases. Metric collection from WMI has been tested with multiple Windows versions, including Win7(SP1) and Nano Server(TP5). It can simultaneously be integrated following TDSDBs:
