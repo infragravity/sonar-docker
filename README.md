@@ -1,7 +1,7 @@
 Sonar is metric collection agent wrtten in .NET Core for gathering data from WMI locally or remotely(using WS-Management protocol) integrated with time series databases. This repository contains configuration files for deploying Sonar using Docker. Helm chart for Kubernetes is coming soon:) 
 
 # Background
-There are few choices for collecting performance metrics from Windows. While there are choices to collect performance counters or generate code for specific WMI metrics available, Sonar is offers configuratin-only approach with supporting multiple types of TSDBs at the same time.   
+There are few choices for collecting performance metrics from Windows. While there are choices to collect performance counters or generate code for specific WMI metrics available, Sonar is offers configuration only approach with supporting multiple types of TSDBs at the same time.   
 
 # Overview
 Sonar collects metrics from WMI queries and sends them to time series databases. Metric collection from WMI has been tested with multiple Windows versions, including Win7(SP1) and Nano Server(TP5). It can simultaneously be integrated following TDSDBs:
@@ -19,7 +19,7 @@ Sonar can be deployed as:
 Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/) 
 
 # Installation
-The below steps describe how to use Docker to create and deploy simple environment with Sonar, InfluxDb. The purpose of Telegraf in this case is to monitor performance for Docker containers.
+The below steps describe how to use Docker to create and deploy simple environment with Sonar, InfluxDb. Telegraf is optional to monitor performance metrics privided by Docker.
 ## Docker  
 1. Clone the repository.
 2. Review Sonar WebAPI sample configuration files and WMI queries in WQL. 
