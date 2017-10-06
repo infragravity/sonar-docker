@@ -73,7 +73,7 @@ For event logs, you can use additional expressions. In the below example, WMI qu
 Sonar allows configuring one or more endpoints for running queries. Below is simple example:
 ```
    <Servers>
-         <add name="webapi-prom" url="http://127.0.0.1:5985/wsman" username="" password="" timeoutMilliseconds="1000" authType="Negotiate"/>
+    <add name="webapi-prom" url="http://127.0.0.1:5985/wsman" username="" password="" timeoutMilliseconds="1000" authType="Negotiate"/>
    </Servers>  
 ```
 ### Schedules
