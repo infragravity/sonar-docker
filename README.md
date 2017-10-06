@@ -1,4 +1,4 @@
-Sonar is metric collection agent wrtten in .NET Core for gathering data from WMI locally or remotely(using WS-Management protocol) integrated with time series databases. This repository contains configuration files for deploying Sonar using Docker. Helm chart for Kubernetes is coming soon:) 
+Sonar is metric collection agent wrtten in .NET Core for gathering data from WMI locally (DCOM) or remotely(using WS-Management protocol) integrated with time series databases. This repository contains configuration files for deploying Sonar using Docker. Helm chart for Kubernetes is coming soon:) 
 
 # Background
 There are few choices for collecting performance metrics from Windows. While there are choices to collect performance counters or generate code for specific WMI metrics available, Sonar offers configuration only approach with support for multiple types of TSDBs used at the same time. This allows to store some metrics in Prometheus while using InfluxDb for storing data collected by Sonar from Windows OS event logs.  
