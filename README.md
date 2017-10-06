@@ -7,17 +7,15 @@ There are few choices for collecting performance metrics from Windows. While the
 Sonar collects metrics from WMI queries and sends them to time series databases. Metric collection from WMI has been tested with multiple Windows versions, including Win7(SP1) and Nano Server(TP5). It can simultaneously be integrated following TDSDBs:
   * InfluxDb - using UDP protocol.
   * Prometeus - as HTTP exporter scrape endpoint. 
-See WebAPi sample that shows how to use both of the above scenarios.
-
 ## Deployment Scenarios
 Sonar can be deployed as:
   * Windows service
   * Docker container
   * Kubernetes pod 
-
 ## Documentation
-Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/) 
-
+Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/)
+## Samples
+The WebAPi sample shows how to use Prometheus or InfluxDb to monitor Windows container (Nano Server) with IIS.
 # Installation
 The below steps describe how to use Docker to create and deploy simple environment with Sonar, InfluxDb. Telegraf is optional to monitor performance metrics privided by Docker.
 ## Docker  
@@ -33,7 +31,45 @@ The following steps are required to run sonar (sonard stands for sonar daemon) l
 ```
 3. Start sonar daemon as windows service.
 # Configuration
-
+## Metrics
+### Queries
+Sonar can be configured to run WMI query for any metric without code changes. Below example shows query for Windows processes:
+```
+   <Queries>
+     <add name="Win32_Process"
+             filter="select * from Win32_Process"
+             resource="http://schemas.microsoft.com/wbem/wsman/1/wmi/root/cimv2/*" namespace="root\cimv2">
+            <Tags>
+                <add name="Name" value = "Name"/>
+            </Tags>
+            <Values>
+                 <add name="ThreadCount" value="CimType.UInt32"/>
+                 <add name="HandleCount" value="CimType.UInt32"/>
+                 <add name="VirtualSize" value="CimType.UInt64"/>
+                 <add name="WorkingSetSize" value="CimType.UInt64"/>
+            </Values>
+        </add>
+   </Queries>
+```
+For event logs, you can use additional expressions. In the below example, WMI query scans Windows event log entries made in past 30 seconds:
+```
+   <Queries>
+     <add name="EventLog_System"
+            filter="select TimeGenerated,Message,EventCode,ComputerName,SourceName,EventType from Win32_NTLogEvent where TimeGenerated > timeshift(30s) and LogFile='System' and EventType!=0"
+            resource="http://schemas.microsoft.com/wbem/wsman/1/wmi/root/cimv2/*" namespace="root\cimv2" 
+            timestamp="TimeGenerated"> 
+            <Tags>
+                <add name="ComputerName" value = "ComputerName"/>
+                <add name="SourceName" value = "SourceName"/>
+            </Tags>
+            <Values>
+                <add name="EventCode" value="CimType.UInt16" />
+                <add name="EventType" value="CimType.UInt8" />
+            </Values>
+        </add>
+   </Queries>
+```
+For more information about configuring schedules and servers, see samples in this repository.
 ## Integration
 ### InfluxDb
 To store metrics in InfluxDb, open CLI and create new database for storing collected metrics:
@@ -43,7 +79,7 @@ To store metrics in InfluxDb, open CLI and create new database for storing colle
 Review configuration in the WebAPI sample. It uses uses UDP configuration to listen on port 8092 for receiving events from Sonar container and storing them in database named 'sonar'.
 ### Prometheus
 Create or update Prometheus job by adding new scrape endpoint hosted by Sonar. By default, Sonar uses configuration to determine port for http://host:port/metrics
-## Configuring WinRM
+## WinRM
 WinRM can be configured to use Basic authentication using the following commands(run as Adminstrator):
 ```
   winrm quickconfig
