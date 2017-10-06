@@ -8,7 +8,7 @@ Sonar collects metrics from WMI queries and sends them to time series databases.
   * InfluxDb - using UDP protocol.
   * Prometeus - as HTTP exporter scrape endpoint. 
 ## Deployment Scenarios
-Sonar can be deployed as:
+Sonar can be deployed as agent or sidecar(for monitoring multiple Windows containers on the same host):
   * Windows service
   * Docker container
   * Kubernetes pod 
