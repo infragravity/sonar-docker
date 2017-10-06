@@ -69,7 +69,21 @@ For event logs, you can use additional expressions. In the below example, WMI qu
         </add>
    </Queries>
 ```
-For more information about configuring schedules and servers, see samples in this repository.
+### Servers
+Sonar allows configuring one or more endpoints for running queries. Below is simple example:
+```
+   <Servers>
+         <add name="webapi-prom" url="http://127.0.0.1:5985/wsman" username="" password="" timeoutMilliseconds="1000" authType="Negotiate"/>
+   </Servers>  
+```
+### Schedules
+Each schedule maps query to a server and specifies polling interval:
+```
+   <Schedules>
+    <add name="localProcesses" query="Win32_Process" server="webapi-prom"  intervalSeconds="10" />
+   </Schedules>
+```
+For more information about configuring schedules and servers, see samples in this repository and our [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/).
 ## Integration
 ### InfluxDb
 To store metrics in InfluxDb, open CLI and create new database for storing collected metrics:
