@@ -12,6 +12,8 @@ Sonar can be deployed as agent or sidecar(for monitoring multiple Windows contai
   * Windows service
   * Docker container
   * Kubernetes pod 
+### Charts
+Sonar can be deployed as sidecar to Kubernetes. More information is in Sonar [charts](https://github.com/infragravity/charts) repository.
 ## Documentation
 Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/)
 ## Samples
