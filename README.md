@@ -9,11 +9,9 @@ Sonar collects metrics from WMI queries and sends them to time series databases.
   * Prometeus - as HTTP exporter scrape endpoint. 
 ## Deployment Scenarios
 Sonar can be deployed as agent or sidecar(for monitoring multiple Windows containers on the same host):
-  * Windows service
-  * Docker container
-  * Kubernetes pod 
-### Charts
-Sonar can be deployed as sidecar to Kubernetes. More information is in Sonar [charts](https://github.com/infragravity/charts) repository.
+  * Windows service - see Dockerfile in WebAPI example in this repository.
+  * Docker container - docs.  
+  * Kubernetes pod - Sonar can be deployed as sidecar to Kubernetes. More information is in Sonar charts repository.
 ## Documentation
 Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/)
 ## Samples
