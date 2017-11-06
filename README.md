@@ -11,7 +11,7 @@ Sonar collects metrics from WMI queries and sends them to time series databases.
 Sonar can be deployed as agent or sidecar(for monitoring multiple Windows containers on the same host):
   * Windows service - see Dockerfile in WebAPI example in this repository.
   * Docker container - docs.  
-  * Kubernetes pod - Sonar can be deployed as sidecar to Kubernetes. More information is in Sonar charts repository.
+  * Kubernetes pod - Sonar can be deployed as sidecar to Kubernetes. More information is in Sonar [charts](http://github.com/infragravity/charts) repository.
 ## Documentation
 Docs are available at [knowledge base](http://www.infragravity.com/knowledge-base/sonar-overview/)
 ## Samples
