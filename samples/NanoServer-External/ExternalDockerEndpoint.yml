@@ -1,0 +1,9 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: nano-metrics
+subsets:
+  - addresses:
+      - ip: 10.0.0.21
+    ports:
+      - port: 8501
