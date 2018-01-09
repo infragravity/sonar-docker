@@ -3,7 +3,6 @@ FROM infragravity/nanoserver-iis:0.0.3
 LABEL Name=infragravity/sonar-samples-webapi Version=0.0.1 
 LABEL Maintainer=info@infragravity.com
 
-ENV SONAR_DOWNLOAD_URL http://www.infragravity.com/download/sonar-latest-win10-x64
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 RUN Invoke-WebRequest https://github.com/infragravity/sonar-docker/releases/download/v0.1.9/sonar-0190-win10-x64.zip -OutFile Sonar.zip
 RUN Expand-Archive Sonar.zip -DestinationPath \sonar
