@@ -8,8 +8,8 @@ Use Prometheus deployed on Kubernetes to scrape metrics from Sonar metric agent 
 
 ## Setup
 
- 1. Modify IP address and port to reference Sonar endpoint for Prometheus ( including annotations) 
-    2. Run below commands to create service with endpoint in K8S
+1. Modify IP address and port to reference Sonar endpoint for Prometheus ( including annotations).
+1. Run below commands to create service with endpoint in K8S
 
 ```bash
 kubectl create -f ExternalDockerSvc.yml
