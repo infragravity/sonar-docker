@@ -1,0 +1,9 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: core-metrics
+subsets:
+  - addresses:
+      - ip: 10.0.0.95
+    ports:
+      - port: 8500

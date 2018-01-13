@@ -1,0 +1,7 @@
+daemon=tcp://10.0.0.95:2375
+docker -H $daemon rmi infragravity/sonar-samples-webapi-prom --force
+#dotnet publish -c Release -o out -r win10-x64
+cp ./Sonard-akumuli.config ./out/Sonard.config 
+cp ./Sonard-akumuli.dll.config ./out/Sonard.dll.config
+docker -H $daemon build -f Dockerfile -t infragravity/sonar-samples-webapi-prom .
+docker -H $daemon run -it -d --name sonar-samples-webapi-prom -p:8556:8000 infragravity/sonar-samples-webapi-prom powershell

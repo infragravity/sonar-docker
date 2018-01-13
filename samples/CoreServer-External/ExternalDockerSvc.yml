@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: core-metrics
+  namespace: default
+  annotations:   
+    prometheus.io/scrape: "true"
+    prometheus.io/path: /metrics
+    prometheus.io/port: "8500"
+#spec:
+#  type: ExternalName
+#  externalName: test03.infragravity.com
+spec:
+  ports:
+  - protocol: TCP
+    port: 8500
+    targetPort: 8500
