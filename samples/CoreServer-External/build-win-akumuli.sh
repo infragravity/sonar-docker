@@ -1,4 +1,4 @@
-daemon=tcp://10.0.0.95:2375
+daemon=tcp://127.0.0.1:2375
 docker -H $daemon rmi infragravity/sonar-samples-webapi-prom --force
 #dotnet publish -c Release -o out -r win10-x64
 cp ./Sonard-akumuli.config ./out/Sonard.config 
