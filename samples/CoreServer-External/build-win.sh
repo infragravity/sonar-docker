@@ -1,4 +1,4 @@
-daemon=tcp://127.0.0.1:2375
+daemon=tcp://10.0.0.96:2375
 image=infragravity/sample-coreserver
 container=sample-coreserver
 monitoring=prometheus
