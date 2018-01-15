@@ -19,7 +19,7 @@ None.
 ./build-win.sh
 ```
 
-1. Run below commands to create service with endpoint in K8S
+1. If you deployed Windows container outside of Kubernetes, use below commands to create service with endpoint in K8S to expose metrics:
 
 ```bash
 kubectl create -f ExternalDockerSvc.yml
