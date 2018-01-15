@@ -4,6 +4,6 @@ metadata:
   name: core-metrics
 subsets:
   - addresses:
-      - ip: 10.0.0.95
+      - ip: 10.0.0.96
     ports:
-      - port: 8500
+      - port: 8050
