@@ -9,9 +9,11 @@
 
 1.Modify name of Docker container image in build.sh file.
 2.Build container using the following command:
+
 `bash
 ./build.sh
 `
+
 3.Deploy Sonar container image to Docker hub using your account. 
 
 ## Deplying Sonar container to Kubernetes
