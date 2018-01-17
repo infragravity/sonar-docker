@@ -24,11 +24,11 @@
 helm install stable/mysql --name mysql01 --set mysqlRootPassword=Pass@word1
 `
 
-2.Clone Sonar charts [repository](http://github.com/infragravity/charts). Install Sonar daemon chart using the following command:
+1.Clone Sonar charts [repository](http://github.com/infragravity/charts). Install Sonar daemon chart using the following command:
 
 `bash
 cd <chart-repository-path>
 helm install stable/sonar-ds --name sonar-mysql --set=image.repo=infragravity/sample-mysql,image.tag=latest,config.name=Sonar-mysql.config
 `
 
-3. At this point, Prometeus will discover Sonar agent endpont and start reporting metrics using data from MySQL queries.
+1.At this point, Prometeus will discover Sonar agent endpont and start reporting metrics using data from MySQL queries.
