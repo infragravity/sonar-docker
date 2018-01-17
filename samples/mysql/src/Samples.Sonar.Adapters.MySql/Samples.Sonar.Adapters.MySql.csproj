@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.9-dmr" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="*" />
+  </ItemGroup>
+  <ItemGroup>
+  <!--
+    <ProjectReference Include="..\..\Source\Sonar\Sonar.csproj" />
+    <ProjectReference Include="..\..\Source\Infragravity.Management.Infrastructure\Infragravity.Management.Infrastructure.csproj" />
+  -->
+    <PackageReference Include="Infragravity.Sonar.Abstractions" Version="1.0.0" />
+  </ItemGroup>
+</Project>
