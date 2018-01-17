@@ -7,14 +7,14 @@
 
 ## Building Sonar container with MySql Adapter
 
-1. Modify name of Docker container image in build.sh file.
-1. Build container using the following command:
+* Modify name of Docker container image in build.sh file.
+* Build container using the following command:
 
 `bash
 ./build.sh
 `
 
-3.Deploy Sonar container image to Docker hub using your account. 
+* Deploy Sonar container image to Docker hub using your account. 
 
 ## Deplying Sonar container to Kubernetes
 
