@@ -1,3 +1,7 @@
+# Update
+This repository has been moved to [GitLab](https://gitlab.com/infragravity/sonar-docker). Please check latest releases and submit issues there. 
+
+# Overview
 Sonar is metric collection agent implemented using .NET Core integrated with time series databases. This repository contains configuration files for deploying Sonar using Docker. For deploying Sonar to Kuberenetes as sidecar, use Helm [charts](https://github.com/infragravity/charts) repository and configuration files. Sonar can gather metrics from:
  * WMI locally or remotely(using WS-Management protocol).
  * Relational data from SQL Server
